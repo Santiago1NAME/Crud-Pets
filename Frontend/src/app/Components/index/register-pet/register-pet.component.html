@@ -1,0 +1,53 @@
+<div class="container" style="width: 100%">
+    <div class="row" style="width: 100%">
+        <div class="col-2 registerCol">
+            <div>
+                <!--img *ngFor="let url of urls" [src]="url" class="rounded mb-3" width="170"-->
+                <img *ngIf="url" [src]="url" class="rounded mb-3" width="170">
+            </div>
+        </div>
+        <div class="col-2 registerCol">
+            <h1>Mascota</h1>
+            <form class="form_register" (ngSubmit)="saveData(form)" #form="ngForm">
+                <div class="row-form">
+                    <div class="colF-2">
+                        <div class="form_control">
+                            <label for="">Nombre mascota*</label>
+                            <input type="text" name="namePI" #namePI="ngModel" id="namePI" [(ngModel)]="pet.nameP" required>
+                            <p class="alertO" *ngIf="namePI.errors?.required && namePI.touched">Este campo es obligatorio</p>
+                        </div>
+                        <div class="form_control">
+                            <label for="">Fecha de nacimiento*</label>
+                            <input type="date" name="datePI" #datePI="ngModel" id="datePI" [(ngModel)]="pet.dateP" required>
+                            <p class="alertO" *ngIf="datePI.errors?.required && datePI.touched">Este campo es obligatorio</p>
+                        </div>
+                        <div class="form_control">
+                            <label for="">Descripción*</label>
+                            <textarea name="descripPI" #descripPI="ngModel" id="descripPI" [(ngModel)]="pet.descripP" required></textarea>
+                            <p class="alertO" *ngIf="descripPI.errors?.required && descripPI.touched">Este campo es obligatorio</p>
+                        </div>
+                    </div>
+                    <div class="colF-2">
+                        <div class="form_control">
+                            <label for="">Raza*</label>
+                            <select name="razaPI" #razaPI="ngModel" id="razaPI" [(ngModel)]="pet.razaP" required>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                            <p class="alertO" *ngIf="razaPI.errors?.required && razaPI.touched">Este campo es obligatorio</p>
+                        </div>
+                        <div class="form_control">
+                            <label for="">Nombre humano*</label>
+                            <input type="text" name="nameHPI" #nameHPI="ngModel" id="nameHPI" [(ngModel)]="pet.nameHP" required>
+                            <p class="alertO" *ngIf="nameHPI.errors?.required && nameHPI.touched">Este campo es obligatorio</p>
+                        </div>
+                    </div>
+                    <input class="fileInput"  type="file" multiple (change)="detectFiles($event)" name="fileP" id="filePI" [(ngModel)]="pet.fileP">
+                    <button [disabled]="!form.valid">Guardar</button>
+                    <button>Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

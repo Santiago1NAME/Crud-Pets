@@ -1,0 +1,88 @@
+.col-2 img{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: calc(100vh - 60px);
+}
+
+.colF-2{
+    flex-basis: 50%;
+    min-width: 300px;
+}
+
+.registerCol{
+    display: grid;
+    align-items: center;
+    height: calc(100vh - 60px);
+}
+
+.registerCol h1{
+    position: absolute;
+    top: 0;
+    left: 52%;
+}
+
+.form_control{
+    display: grid;
+}
+
+.form_control input{
+    width: 90%;
+    background: #1414140a;
+    padding: 6px;
+    border-radius: 5px;
+    border: 1px solid #14141426;
+}
+
+.form_control select{
+    width: 90%;
+    background: #1414140a;
+    padding: 6px;
+    border-radius: 5px;
+    border: 1px solid #14141426;
+}
+
+.form_control textarea{
+    width: 190%;
+    background: #1414140a;
+    padding: 6px;
+    border-radius: 5px;
+    border: 1px solid #14141426;
+}
+
+.row-form{
+    padding-left: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 100%;
+}
+
+.form_register button{
+    width: 45%;
+    margin-top: 5%;
+    margin-right: 5px;
+    padding: 8px;
+    background: #707070;
+    border: 0;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.form_register button:hover{
+    background: #383535;
+}
+
+.fileInput{
+    position: absolute;
+    bottom: 30px;
+    left: 15%;
+}
+
+.alertO{
+    color: red;
+    font-size: 13px;
+    margin-top: 0;
+}
