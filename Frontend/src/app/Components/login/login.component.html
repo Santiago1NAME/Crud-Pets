@@ -10,11 +10,11 @@
                 <form (ngSubmit)="login(form)" #form="ngForm">
                     <div class="form_control">
                         <label>Correo electrónico</label>
-                        <input type="text" name="correoLI" #correoLI="ngModel" id="correoLI" [(ngModel)]="usuario.correoL" required>
+                        <input type="text" name="correoLI" #correoLI="ngModel" id="correoLI" [(ngModel)]="usuario.email" required>
                     </div>
                     <div class="form_control">
                         <label>Contraseña</label>
-                        <input type="password"  name="contraLI" #contraLI="ngModel" id="contraLI" [(ngModel)]="usuario.contraL" required>
+                        <input type="password"  name="contraLI" #contraLI="ngModel" id="contraLI" [(ngModel)]="usuario.password" required>
                     </div>
                     <div class="checkboxR">
                         <input type="checkbox" class="" id="exampleCheck1">
@@ -23,6 +23,7 @@
                     <div class="form_control">
                         <a class="aO" href="#">Olvidé mi contraseña</a>
                     </div>
+                    <div class="alertC" *ngIf="!validarLogin">{{  mensajeLogin }}</div>
                     <button type="submit">Ingresar</button>
                 </form>
             </div>

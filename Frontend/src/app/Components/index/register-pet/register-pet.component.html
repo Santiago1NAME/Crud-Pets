@@ -44,7 +44,7 @@
                         </div>
                     </div>
                     <input class="fileInput"  type="file" multiple (change)="detectFiles($event)" name="fileP" id="filePI" [(ngModel)]="pet.fileP">
-                    <button [disabled]="!form.valid">Guardar</button>
+                    <button [disabled]="!form.valid" (click)="saveData2(form)" type="submit">Guardar</button>
                     <button>Cancelar</button>
                 </div>
             </form>

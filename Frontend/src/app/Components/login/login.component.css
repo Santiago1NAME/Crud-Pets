@@ -61,3 +61,11 @@
 .form_login button:hover{
     background: #383535;
 }
+
+.alertC{
+    background-color: #ff3b3b;
+    padding: 10px;
+    text-align: center;
+    border-radius: 8px;
+    color: white;
+}

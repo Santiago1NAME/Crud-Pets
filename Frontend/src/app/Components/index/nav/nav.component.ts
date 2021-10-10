@@ -1,4 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+//Esto es la clase que se necesita para navegar entre páginas
+import { Router } from '@angular/router';
+import { UsuariosService } from '../../../Services/usuarios.service';
 
 @Component({
   selector: 'app-nav',
@@ -8,9 +11,13 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class NavComponent implements OnInit {
 
-  constructor() { }
+  constructor(private usuariosService: UsuariosService, private router:Router) { }
 
   ngOnInit(): void {
   }
 
+  closeSe(){
+    localStorage.removeItem('auth_token');
+    this.router.navigate(['']);
+  }
 }

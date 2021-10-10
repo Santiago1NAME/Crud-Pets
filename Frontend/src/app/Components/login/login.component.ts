@@ -1,4 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+//Esto es la clase que se necesita para navegar entre páginas
+import { Router } from '@angular/router';
 import { UsuariosService } from '../../Services/usuarios.service';
 
 @Component({
@@ -10,13 +12,15 @@ import { UsuariosService } from '../../Services/usuarios.service';
 export class LoginComponent implements OnInit {
 
   public usuario: any = {
-    correoL: "",
-    contraL: ""
+    email: "",
+    password: ""
   }
   usuarioJson: any;
   renderUsuario: any;
+	public validarLogin:boolean = true;
+	public mensajeLogin:any;
 
-  constructor(private usuariosService: UsuariosService) { }
+  constructor(private usuariosService: UsuariosService, private router:Router) { }
 
   ngOnInit(): void {
 
@@ -24,22 +28,21 @@ export class LoginComponent implements OnInit {
 
   login(form: any){
     console.log("f ", this.usuario);
-    this.usuariosService.getUsuarios()
-    .subscribe(res => {
-      this.usuarioJson = res;
-      this.renderUsuario = this.usuarioJson.find((result: any) => {
-        if(result.correo == this.usuario.correoL && result.password == this.usuario.contraL){
-          return true;
-        }else{
-          return false;
-        }
-      });
+    this.usuariosService.login(this.usuario)
+    .subscribe((res: any) => {
 
-      if(this.renderUsuario){
-        console.log("entroooo");
+      console.log(res);
+      this.usuarioJson = res;
+      console.log(this.usuarioJson);
+
+      if(this.usuarioJson["clave"] == "autorizado"){
+        this.router.navigate(['/inicio/contenido']);
+				localStorage.setItem('auth_token', this.usuarioJson["access_token"]);
       }else{
-        console.log("error");
+        this.mensajeLogin = this.usuarioJson.message;
+				this.validarLogin = false;
       }
+
 
     })
   }
