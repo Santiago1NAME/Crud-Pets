@@ -36,5 +36,6 @@ Route::group([
     'prefix' => 'pet'
 ], function ($router) {
     Route::post('register', 'App\Http\Controllers\PetController@register');
+    Route::get('razas', 'App\Http\Controllers\PetController@getRazas');
 });
 

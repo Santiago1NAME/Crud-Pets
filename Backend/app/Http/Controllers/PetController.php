@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pet;
+use App\Models\Raza;
 use Illuminate\Http\Request;
 
 class PetController extends Controller
@@ -24,6 +25,10 @@ class PetController extends Controller
         $pet->descripcion = $request->descripcion;
         $pet->imagen = $name;
         $pet->save();
+    }
+
+    public function getRazas(){
+        return Raza::all();
     }
 
 }
